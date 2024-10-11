@@ -1,6 +1,5 @@
 class Solution {
     public int firstMissingPositive(int[] nums) {
-    Arrays.sort(nums);
 int v=1;
 HashSet<Integer> set=new HashSet<>();
 for(int i:nums)set.add(i);
