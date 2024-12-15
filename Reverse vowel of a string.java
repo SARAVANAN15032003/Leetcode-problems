@@ -1,22 +1,19 @@
 class Solution {
-    public static boolean isvowel(char c){
-         if(c=='a'||c=='e'||c=='i'||c=='o'||c=='u'||c=='A'||c=='E'||c=='I'||c=='O'||c=='U')
-         return true;
-    return false;
-    }
     public String reverseVowels(String s) {
-    String s2="";    
-    String s1="";
-        for(int i=0;i<s.length();i++){
-           if(isvowel(s.charAt(i)))
-            s1=s.charAt(i)+""+s1;
-        }int j=0;
-        for(int i=0;i<s.length();i++){
-            if(isvowel(s.charAt(i)))
-           s2=s2+s1.charAt(j++)+"";
-           else 
-           s2=s2+s.charAt(i);
+        StringBuilder sb=new StringBuilder(s);
+        String g="aeoiuAEIOU";
+        int i=0,j=s.length()-1;
+        while(i<j){
+            while(!g.contains(s.charAt(i)+"")&&i<j){
+                i++;
+            }
+            while(!g.contains(s.charAt(j)+"")&&i<j){
+                j--;
+            }
+            sb.setCharAt(i,s.charAt(j));
+            sb.setCharAt(j,s.charAt(i));
+            i++;j--;
         }
-        return s2;
+        return sb.toString();
     }
 }
